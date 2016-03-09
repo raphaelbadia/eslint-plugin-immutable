@@ -109,3 +109,5 @@ Here's a sample ESLint configuration file that activates these rules:
     }
 }
 ```
+
+Special Thanks to [cerealbox](https://github.com/cerealbox) who paired with me on this.
