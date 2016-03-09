@@ -17,7 +17,7 @@ There's no reason to use `let` in a Redux/React application, because all your st
 let x = 5; // <- Unexpected let or var, use const.
 ```
 
-What about for loops? For loops can be replaced with the Array methods like map, filter, and so forth. If you find the built-in JS Array methods lacking, use [lodash](https://github.com/lodash/lodash).
+What about `for` loops? Loops can be replaced with the Array methods like `map`, `filter`, and so on. If you find the built-in JS Array methods lacking, use [lodash](https://github.com/lodash/lodash).
 
 ```JavaScript
 const SearchResults = 
@@ -29,7 +29,7 @@ const SearchResults =
 
 ### no-this
 
-Thanks to libraries like [recompose](https://github.com/acdlite/recompose) and Redux's [React Container components](http://redux.js.org/docs/basics/UsageWithReact.html), there's not much reason to build Components using React.createClass or ES6 classes anymore. The `no-this` rule makes this explicit.
+Thanks to libraries like [recompose](https://github.com/acdlite/recompose) and Redux's [React Container components](http://redux.js.org/docs/basics/UsageWithReact.html), there's not much reason to build Components using `React.createClass` or ES6 classes anymore. The `no-this` rule makes this explicit.
 
 ```JavaScript
 const Message = React.createClass({
@@ -39,10 +39,10 @@ const Message = React.createClass({
 })
 ```
 
-Instead you can use React 0.14's [Stateless Functional Components](https://medium.com/@joshblack/stateless-components-in-react-0-14-f9798f8b992d#.t5z2fdit6) and save yourself some keystrokes:
+Instead of creating classes, you should use React 0.14's [Stateless Functional Components](https://medium.com/@joshblack/stateless-components-in-react-0-14-f9798f8b992d#.t5z2fdit6) and save yourself some keystrokes:
 
 ```JavaScript
-const Message = ({message}) => <div>{ props.message }</div>;
+const Message = ({message}) => <div>{ message }</div>;
 ```
 
 What about lifecycle methods like `shouldComponentUpdate`? We can use the [recompose](https://github.com/acdlite/recompose) library to apply these optimizations to your Stateless Functional Components. The [recompose](https://github.com/acdlite/recompose) library relies on the fact that your Redux state is immutable to efficiently implement shouldComponentUpdate for you.
@@ -50,7 +50,7 @@ What about lifecycle methods like `shouldComponentUpdate`? We can use the [recom
 ```JavaScript
 import { pure, onlyUpdateForKeys } from 'recompose';
 
-const Message = ({message}) => <div>{ props.message }</div>;
+const Message = ({message}) => <div>{ message }</div>;
 
 // Optimized version of same component, using shallow comparison of props
 // Same effect as React's PureRenderMixin
@@ -62,7 +62,7 @@ const HyperOptimizedMessage = onlyUpdateForKeys(['message'], Message);
 
 ### no-mutation
 
-You might think that prohibiting the use of `let` and `var` would eliminate mutation from your JavaScript code. Wrong. Turns out that there's a pretty big loophole in `const`...
+You might think that prohibiting the use of `let` and `var` would eliminate mutation from your JavaScript code. **Wrong.** Turns out that there's a pretty big loophole in `const`...
 
 ```JavaScript
 const point = { x: 23, y: 44 };
@@ -83,7 +83,7 @@ const point = { x: 23, y: 44 };
 const transformedPoint = { ...point, x: 99 };
 ```
 
-You can enable this syntax using the [syntax-object-rest-spread](https://babeljs.io/docs/plugins/syntax-object-rest-spread/) Babel plug-in.
+You can enable this syntax using the [syntax-object-rest-spread](https://babeljs.io/docs/plugins/syntax-object-rest-spread/) [Babel](https://babeljs.io/) plug-in.
 
 ## Supplementary ESLint Rules to Enable
 
