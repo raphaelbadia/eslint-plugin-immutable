@@ -89,6 +89,7 @@ You can enable this syntax using the [syntax-object-rest-spread](https://babeljs
 
 The rules in this package alone can not eliminate mutation in your JavaScript programs. To go the distance I suggest you also enable the following built-in ESLint rules:
 
+* no-var (self-explanatory)
 * no-undef (prevents assigning to global variables that haven't been declared)
 * no-param-reassign (prevents assigning to variables introduced as function parameters)
 
