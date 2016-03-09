@@ -3,15 +3,13 @@
 module.exports = {
     rules: {
         "no-let": function(context) {
-
 		    return {
 		        "VariableDeclaration": function(node) {
-		            if (node.kind === "let" || node.kind === "var") {
-		                context.report(node, "Unexpected let or var, use const.");
+		            if (node.kind === "let") {
+		                context.report(node, "Unexpected let, use const.");
 		            }
 		        }
 		    };
-
 		},
 		"no-this": function(context) {
 			return {
