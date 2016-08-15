@@ -22,11 +22,15 @@ module.exports = {
 			return {
 				"AssignmentExpression": function(node) {
 					if (node.left.type === "MemberExpression") {
-						context.report(node, "No object mutation allowed.");
+						var memberExpression = node.left
+
+						if (memberExpression.object.name !== 'module' && memberExpression.property.name !== 'exports') {
+							context.report(node, "No object mutation allowed.");
+						}
 					}
 				}
 			}
-		}		
+		}
     },
 	configs: {
 		recommended: {
@@ -36,7 +40,7 @@ module.exports = {
 	        	'redux/no-mutation': 2
 	      	}
 	    }
-	}    
+	}
 };
 
 
