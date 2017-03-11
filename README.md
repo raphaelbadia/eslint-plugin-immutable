@@ -20,10 +20,10 @@ let x = 5; // <- Unexpected let or var, use const.
 What about `for` loops? Loops can be replaced with the Array methods like `map`, `filter`, and so on. If you find the built-in JS Array methods lacking, use [lodash](https://github.com/lodash/lodash).
 
 ```JavaScript
-const SearchResults = 
-  ({ results }) => 
+const SearchResults =
+  ({ results }) =>
     <ul>{
-      results.map(result => <li>result</li>) // <- Who needs let?
+      results.map(result => <li>{ result }</li>) // <- Who needs let?
     }</ul>;
 ```
 
