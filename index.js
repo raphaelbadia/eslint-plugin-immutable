@@ -1,5 +1,7 @@
 "use strict";
 
+var checkExceptions = require('./check_exceptions');
+
 module.exports = {
     rules: {
         "no-let": function(context) {
@@ -21,6 +23,13 @@ module.exports = {
 		"no-mutation": function(context) {
 			return {
 				"AssignmentExpression": function(node) {
+					var options = context.options[0] || {};
+					var exceptions = options.exceptions || [];
+
+					if (checkExceptions(node, exceptions)) {
+						return;
+					}
+
 					if (node.left.type === "MemberExpression") {
 						var memberExpression = node.left
 
