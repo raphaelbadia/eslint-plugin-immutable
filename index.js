@@ -32,7 +32,10 @@ module.exports = {
 
 					if (node.left.type === "MemberExpression") {
 						var memberExpression = node.left
-						if (memberExpression.object.name !== 'module' && memberExpression.property.name !== 'exports' && memberExpression.property.name !== 'displayName') {
+						if (memberExpression.object.name !== 'module'
+							&& memberExpression.property.name !== 'exports'
+							&& memberExpression.property.name !== 'displayName'
+							&& memberExpression.property.name !== 'muiName') {
 							context.report(node, "No object mutation allowed.");
 						}
 					}
