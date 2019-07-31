@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jhusain/eslint-plugin-immutable.git"
+    "url": "git+https://github.com/raphaelbadia/eslint-plugin-immutable.git"
   },
   "keywords": [
     "eslint",
@@ -25,7 +25,7 @@
   "author": "Jafar Husain",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/jhusain/eslint-plugin-immutable/issues"
+    "url": "https://github.com/raphaelbadia/eslint-plugin-immutable/issues"
   },
-  "homepage": "https://github.com/jhusain/eslint-plugin-immutable#readme"
+  "homepage": "https://github.com/raphaelbadia/eslint-plugin-immutable#readme"
 }
