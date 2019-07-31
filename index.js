@@ -33,6 +33,7 @@ module.exports = {
 					if (node.left.type === "MemberExpression") {
 						var memberExpression = node.left
 						if (memberExpression.object.name !== 'module'
+							&& memberExpression.object.name !== 'this'
 							&& memberExpression.property.name !== 'exports'
 							&& memberExpression.property.name !== 'displayName'
 							&& memberExpression.property.name !== 'muiName') {
