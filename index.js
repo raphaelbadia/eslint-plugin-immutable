@@ -32,8 +32,7 @@ module.exports = {
 
 					if (node.left.type === "MemberExpression") {
 						var memberExpression = node.left
-
-						if (memberExpression.object.name !== 'module' && memberExpression.property.name !== 'exports') {
+						if (memberExpression.object.name !== 'module' && memberExpression.property.name !== 'exports' && memberExpression.property.name !== 'displayName') {
 							context.report(node, "No object mutation allowed.");
 						}
 					}

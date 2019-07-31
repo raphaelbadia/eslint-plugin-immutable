@@ -13,6 +13,7 @@ var ruleTester = new RuleTester({
 
 ruleTester.run("no-mutation", rule, {
   valid: [
+    "MyComponent.displayName = 'Hello'",
     "const x = obj.y;",
     "const { x, y } = obj;",
     "export const x = 4;",
